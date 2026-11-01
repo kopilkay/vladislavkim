@@ -216,6 +216,24 @@
   .student-score { font-weight: 800; font-size: 20px; color: var(--blue-500); }
   @media (max-width: 900px) { .results-grid { grid-template-columns: 1fr; } }
 
+  /* MATERIALS */
+  .materials-bg { background: var(--beige-100); }
+  .materials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
+  .material-card {
+    background: var(--white); border-radius: var(--radius-lg); padding: 32px;
+    border: 1px solid rgba(6, 19, 74, 0.06);
+    display: flex; flex-direction: column;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .material-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .material-icon { font-size: 32px; margin-bottom: 16px; }
+  .material-card h3 { font-size: 20px; color: var(--blue-900); margin-bottom: 12px; line-height: 1.3; }
+  .material-card p { color: var(--muted); font-size: 15px; margin-bottom: 24px; flex-grow: 1; }
+  .material-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .material-price { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20px; color: var(--blue-700); }
+  .material-card .btn { padding: 10px 20px; font-size: 14px; }
+  @media (max-width: 900px) { .materials-grid { grid-template-columns: 1fr; } }
+
   /* PRICING */
   .pricing { background: var(--beige-100); }
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -401,6 +419,7 @@
     <div class="nav-links">
       <a href="#about">Обо мне</a>
       <a href="#results">Результаты</a>
+      <a href="#materials">Материалы</a>
       <a href="#pricing">Цены</a>
       <a href="#programs">Программы</a>
       <a href="#reviews">Отзывы</a>
@@ -525,45 +544,94 @@
   </div>
 </section>
 
-<!-- PROGRAMS -->
-<section id="programs">
+<!-- NEW MATERIALS BLOCK -->
+<section id="materials" class="materials-bg">
   <div class="container">
     <div class="section-head">
-      <span class="section-tag">Направления подготовки</span>
-      <h2>Открыт набор на 2026/2027 учебный год</h2>
-      <p>Почти все программы рассчитаны на 2 часа в неделю. Занятия проходят по будням в вечернее время.</p>
+      <span class="section-tag">Обучающие материалы</span>
+      <h2>Готовые пособия и тренажеры</h2>
+      <p>Авторские материалы для самостоятельной подготовки и работы с репетитором. Все задания с автоматической проверкой и подробными пояснениями.</p>
     </div>
-    <div class="programs-grid">
-      <div class="program">
-        <div class="program-icon">📘</div>
-        <h4>ЕГЭ базовый уровень</h4>
-        <p>Для тех, кто не уверен в знаниях и хочет готовиться с нуля</p>
+    <div class="materials-grid">
+      <!-- Material 1 -->
+      <div class="material-card">
+        <div class="material-icon">📘</div>
+        <h3>Задания 1-3. Много практики</h3>
+        <p>Тренажеры по заданиям 1, 2, 3 + 5 вариантов по 10 заданий. Видеоуроки, презентации, интеллект-карты и интерактивные упражнения для работы с микротекстом.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/04ffdd18-4f5d-4175-88b1-42831c314bc0" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
-      <div class="program">
-        <div class="program-icon">🚀</div>
-        <h4>ЕГЭ продвинутый уровень</h4>
-        <p>Для тех, кто сдал ОГЭ на отлично и пишет пробники на 60+</p>
+
+      <!-- Material 2 -->
+      <div class="material-card">
+        <div class="material-icon">📝</div>
+        <h3>Причастие и деепричастие: практикум</h3>
+        <p>20 текстов и более 350 предложений для отработки морфологии, синтаксиса и пунктуации. Подходит для 7–11 классов при подготовке к ВПР, ОГЭ и ЕГЭ.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/a0370a99-0a8b-46b2-b6fc-ca6b7a7441d3" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
-      <div class="program">
-        <div class="program-icon">📗</div>
-        <h4>ЕГЭ для 10 класса</h4>
-        <p>Начать подготовку заранее и не спешить в выпускном</p>
+
+      <!-- Material 3 -->
+      <div class="material-card">
+        <div class="material-icon">🎯</div>
+        <h3>Варианты ЕГЭ 2025 (реальный уровень)</h3>
+        <p>6 вариантов ЕГЭ в формате 2026 года с автоматической проверкой и подробным разбором каждого задания. Для диагностики и закрепления знаний.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/efd35012-5999-458f-a5da-92596cd604a7" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
-      <div class="program">
-        <div class="program-icon">✏️</div>
-        <h4>ОГЭ по русскому</h4>
-        <p>Для уверенной сдачи на 4 или 5</p>
+
+      <!-- Material 4 -->
+      <div class="material-card">
+        <div class="material-icon">🚀</div>
+        <h3>2 варианта ЕГЭ (повышенный уровень)</h3>
+        <p>Готовый методический комплект для учителей и репетиторов. Разобраны самые сложные «ловушки» экзамена: стили речи, суффиксы причастий, стык союзов.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/3b559006-0b1d-416e-8f32-087b76e69313" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
-      <div class="program">
-        <div class="program-icon">🖋️</div>
-        <h4>Итоговое сочинение</h4>
-        <p>Научу писать сочинения с нуля и по структуре</p>
+
+      <!-- Material 5 -->
+      <div class="material-card">
+        <div class="material-icon">✏️</div>
+        <h3>Диктанты (осложненное списывание) от ФИПИ</h3>
+        <p>Упражнения на основе диктантов ГВЭ для 9 класса. Повторение всех основных орфограмм и пунктограмм ГИА для 8–11 классов.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/1741f69f-932c-4de1-8b77-22eaf2dce3ac" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
-      <div class="program">
-        <div class="program-icon">🏆</div>
-        <h4>Олимпиады и поступление</h4>
-        <p>Подготовка к олимпиадам и вступительным в школы с гуманитарным уклоном</p>
+
+      <!-- Material 6 -->
+      <div class="material-card">
+        <div class="material-icon">🔥</div>
+        <h3>Тренажеры ЕГЭ 2026 (задания 1-22)</h3>
+        <p>22 теста по 10 номеров для отработки тестовой части ЕГЭ повышенного уровня сложности. Автопроверка и подробные пояснения к каждому заданию.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/ad43e5cc-8b5b-44c7-9358-dc02479641ef" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
       </div>
+
+      <!-- Material 7 -->
+      <div class="material-card">
+        <div class="material-icon">🌱</div>
+        <h3>Русский язык. Корни-омофоны</h3>
+        <p>Тренинг с иллюстрациями для запоминания более 100 слов с корнями-омофонами. Формирует навык подбора проверочного слова по смыслу, а не наугад.</p>
+        <div class="material-footer">
+          <span class="material-price">Узнать цену</span>
+          <a href="https://lk.cloudtext.ru/materials/9bb0b147-a6e9-4a68-8f0e-0500b862cce5" target="_blank" class="btn btn-primary">Купить</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-secondary">Смотреть все материалы автора →</a>
     </div>
   </div>
 </section>
@@ -986,7 +1054,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.step, .price-card, .review-card, .program, .format-card, .student-case').forEach(el => {
+  document.querySelectorAll('.step, .price-card, .review-card, .program, .format-card, .student-case, .material-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity .6s ease, transform .6s ease';
