@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Обновленная, более насыщенная синяя палитра */
     --blue-900: #06134A; 
     --blue-700: #0F2B8C;
     --blue-500: #1D4ED8;
@@ -188,7 +187,7 @@
   }
   @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-  /* NEW RESULTS */
+  /* RESULTS */
   .results-bg { background: var(--white); }
   .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .results-card {
@@ -218,21 +217,47 @@
 
   /* MATERIALS */
   .materials-bg { background: var(--beige-100); }
-  .materials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
+  .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
   .material-card {
-    background: var(--white); border-radius: var(--radius-lg); padding: 32px;
+    background: var(--white); border-radius: var(--radius-lg);
     border: 1px solid rgba(6, 19, 74, 0.06);
     display: flex; flex-direction: column;
     transition: transform .3s, box-shadow .3s;
+    overflow: hidden;
   }
-  .material-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-  .material-icon { font-size: 32px; margin-bottom: 16px; }
-  .material-card h3 { font-size: 20px; color: var(--blue-900); margin-bottom: 12px; line-height: 1.3; }
-  .material-card p { color: var(--muted); font-size: 15px; margin-bottom: 24px; flex-grow: 1; }
-  .material-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+  .material-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+  .material-cover {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  .material-cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+    background-size: 80px;
+    opacity: 0.5;
+  }
+  .material-cover-icon { font-size: 32px; margin-bottom: 8px; z-index: 1; }
+  .material-cover-title { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18px; line-height: 1.2; z-index: 1; }
+  .material-cover-sub { font-size: 12px; opacity: 0.8; margin-top: 6px; z-index: 1; }
+  .material-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+  .material-body h3 { font-size: 18px; color: var(--blue-900); margin-bottom: 12px; line-height: 1.3; }
+  .material-body p { color: var(--muted); font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
+  .material-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(6, 19, 74, 0.06); }
   .material-price { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 20px; color: var(--blue-700); }
   .material-card .btn { padding: 10px 20px; font-size: 14px; }
-  @media (max-width: 900px) { .materials-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .materials-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .materials-grid { grid-template-columns: 1fr; } }
 
   /* PRICING */
   .pricing { background: var(--beige-100); }
@@ -496,7 +521,7 @@
   </div>
 </section>
 
-<!-- NEW RESULTS BLOCK -->
+<!-- RESULTS -->
 <section id="results" class="results-bg">
   <div class="container">
     <div class="section-head">
@@ -544,94 +569,119 @@
   </div>
 </section>
 
-<!-- NEW MATERIALS BLOCK -->
+<!-- MATERIALS -->
 <section id="materials" class="materials-bg">
   <div class="container">
     <div class="section-head">
       <span class="section-tag">Обучающие материалы</span>
-      <h2>Готовые пособия и тренажеры</h2>
-      <p>Авторские материалы для самостоятельной подготовки и работы с репетитором. Все задания с автоматической проверкой и подробными пояснениями.</p>
+      <h2>Мои авторские пособия по русскому языку</h2>
+      <p>Готовые материалы для самостоятельной подготовки и работы с репетитором. Все задания с автоматической проверкой и подробными пояснениями.</p>
     </div>
     <div class="materials-grid">
       <!-- Material 1 -->
       <div class="material-card">
-        <div class="material-icon">📘</div>
-        <h3>Задания 1-3. Много практики</h3>
-        <p>Тренажеры по заданиям 1, 2, 3 + 5 вариантов по 10 заданий. Видеоуроки, презентации, интеллект-карты и интерактивные упражнения для работы с микротекстом.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/04ffdd18-4f5d-4175-88b1-42831c314bc0" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">📝</div>
+          <div class="material-cover-title">Итоговое сочинение</div>
+          <div class="material-cover-sub">ЕГЭ на максимум</div>
+        </div>
+        <div class="material-body">
+          <h3>ИТОГОВОЕ СОЧИНЕНИЕ ЕГЭ НА МАКСИМУМ</h3>
+          <p>Полный разбор структуры, аргументов и критериев оценивания. Готовые шаблоны и примеры сочинений для получения зачёта и высоких баллов.</p>
+          <div class="material-footer">
+            <span class="material-price">339 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
 
       <!-- Material 2 -->
       <div class="material-card">
-        <div class="material-icon">📝</div>
-        <h3>Причастие и деепричастие: практикум</h3>
-        <p>20 текстов и более 350 предложений для отработки морфологии, синтаксиса и пунктуации. Подходит для 7–11 классов при подготовке к ВПР, ОГЭ и ЕГЭ.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/a0370a99-0a8b-46b2-b6fc-ca6b7a7441d3" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">📚</div>
+          <div class="material-cover-title">Вся теория + 300 заданий</div>
+          <div class="material-cover-sub">ЕГЭ по русскому</div>
+        </div>
+        <div class="material-body">
+          <h3>Вся теория для подготовки + тест с 300 заданиями</h3>
+          <p>Комплексный тренажер: весь необходимый теоретический материал и 300 заданий с автопроверкой для отработки всех типов заданий ЕГЭ.</p>
+          <div class="material-footer">
+            <span class="material-price">949 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
 
       <!-- Material 3 -->
       <div class="material-card">
-        <div class="material-icon">🎯</div>
-        <h3>Варианты ЕГЭ 2025 (реальный уровень)</h3>
-        <p>6 вариантов ЕГЭ в формате 2026 года с автоматической проверкой и подробным разбором каждого задания. Для диагностики и закрепления знаний.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/efd35012-5999-458f-a5da-92596cd604a7" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">🎲</div>
+          <div class="material-cover-title">Интерактивные игры</div>
+          <div class="material-cover-sub">Своя игра 9-11 классы</div>
+        </div>
+        <div class="material-body">
+          <h3>Интерактивные игры по русскому языку</h3>
+          <p>Своя игра для 9-11 классов. Формат викторины для повторения правил, подготовки к экзаменам и повышения интереса к предмету.</p>
+          <div class="material-footer">
+            <span class="material-price">249 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
 
       <!-- Material 4 -->
       <div class="material-card">
-        <div class="material-icon">🚀</div>
-        <h3>2 варианта ЕГЭ (повышенный уровень)</h3>
-        <p>Готовый методический комплект для учителей и репетиторов. Разобраны самые сложные «ловушки» экзамена: стили речи, суффиксы причастий, стык союзов.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/3b559006-0b1d-416e-8f32-087b76e69313" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">🔥</div>
+          <div class="material-cover-title">Основная волна 2026</div>
+          <div class="material-cover-sub">Задания + конспекты</div>
+        </div>
+        <div class="material-body">
+          <h3>Задания с основной волны ЕГЭ по русскому языку 2026 года + конспекты</h3>
+          <p>Актуальные задания с реального экзамена 2026 года с подробными конспектами и разбором всех сложных моментов.</p>
+          <div class="material-footer">
+            <span class="material-price">849 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
 
       <!-- Material 5 -->
       <div class="material-card">
-        <div class="material-icon">✏️</div>
-        <h3>Диктанты (осложненное списывание) от ФИПИ</h3>
-        <p>Упражнения на основе диктантов ГВЭ для 9 класса. Повторение всех основных орфограмм и пунктограмм ГИА для 8–11 классов.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/1741f69f-932c-4de1-8b77-22eaf2dce3ac" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">🎯</div>
+          <div class="material-cover-title">Полный комплект</div>
+          <div class="material-cover-sub">Подготовка к ЕГЭ</div>
+        </div>
+        <div class="material-body">
+          <h3>Полный комплект для подготовки к ЕГЭ по русскому языку</h3>
+          <p>Всё необходимое в одном комплекте: теория, практика, тренировочные варианты и авторские задания для системной подготовки.</p>
+          <div class="material-footer">
+            <span class="material-price">549 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
 
       <!-- Material 6 -->
       <div class="material-card">
-        <div class="material-icon">🔥</div>
-        <h3>Тренажеры ЕГЭ 2026 (задания 1-22)</h3>
-        <p>22 теста по 10 номеров для отработки тестовой части ЕГЭ повышенного уровня сложности. Автопроверка и подробные пояснения к каждому заданию.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/ad43e5cc-8b5b-44c7-9358-dc02479641ef" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-cover">
+          <div class="material-cover-icon">🗺️</div>
+          <div class="material-cover-title">Блок-схемы ОГЭ</div>
+          <div class="material-cover-sub">Правила по русскому</div>
         </div>
-      </div>
-
-      <!-- Material 7 -->
-      <div class="material-card">
-        <div class="material-icon">🌱</div>
-        <h3>Русский язык. Корни-омофоны</h3>
-        <p>Тренинг с иллюстрациями для запоминания более 100 слов с корнями-омофонами. Формирует навык подбора проверочного слова по смыслу, а не наугад.</p>
-        <div class="material-footer">
-          <span class="material-price">Узнать цену</span>
-          <a href="https://lk.cloudtext.ru/materials/9bb0b147-a6e9-4a68-8f0e-0500b862cce5" target="_blank" class="btn btn-primary">Купить</a>
+        <div class="material-body">
+          <h3>БЛОК-СХЕМЫ С ПРАВИЛАМИ ПО РУССКОМУ ЯЗЫКУ ОГЭ</h3>
+          <p>Наглядные блок-схемы для быстрого запоминания правил орфографии и пунктуации. Идеально для подготовки к ОГЭ.</p>
+          <div class="material-footer">
+            <span class="material-price">120 ₽</span>
+            <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-primary">Купить</a>
+          </div>
         </div>
       </div>
     </div>
     <div style="text-align: center; margin-top: 40px;">
-      <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-secondary">Смотреть все материалы автора →</a>
+      <a href="https://lk.cloudtext.ru/materials/author/180836" target="_blank" class="btn btn-secondary">Смотреть все мои материалы →</a>
     </div>
   </div>
 </section>
@@ -914,7 +964,6 @@
       </div>
     </div>
 
-    <!-- ОБНОВЛЕННАЯ ФОРМА -->
     <form class="contact-form" id="contactForm">
       <h3>Оставить заявку</h3>
       <p>Заполните форму, и я свяжусь с вами в WhatsApp</p>
@@ -943,7 +992,6 @@
         </select>
       </div>
 
-      <!-- НОВЫЕ ПОЛЯ -->
       <div class="form-row">
         <label for="format">Формат занятий</label>
         <select id="format" name="format" required>
@@ -992,7 +1040,6 @@
 </footer>
 
 <script>
-  // Аккордеон FAQ
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
@@ -1002,49 +1049,32 @@
     });
   });
 
-  // Отправка формы в WhatsApp
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Собираем данные из полей
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const grade = document.getElementById('grade').value;
     const format = document.getElementById('format').value;
     const frequency = document.getElementById('frequency').value;
     const comment = document.getElementById('comment').value;
-    
-    // Ваш номер WhatsApp (без плюса и скобок)
     const waPhone = '79004409749'; 
     
-    // Формируем красивое сообщение
     let text = `Здравствуйте! Хочу записаться на занятие с сайта.%0A%0A`;
     text += `👤 *Имя:* ${name}%0A`;
     text += `📞 *Телефон:* ${phone}%0A`;
     text += `🎓 *Класс:* ${grade}%0A`;
     text += `💼 *Формат:* ${format}%0A`;
     text += `📅 *Частота:* ${frequency}%0A`;
+    if (comment.trim() !== '') text += `📝 *Комментарий:* ${comment}%0A`;
     
-    if (comment.trim() !== '') {
-      text += `📝 *Комментарий:* ${comment}%0A`;
-    }
-    
-    // Показываем сообщение об успехе
     const successMsg = document.getElementById('formSuccess');
     successMsg.classList.add('show');
-    
-    // Перенаправляем в WhatsApp (откроется в новой вкладке)
     const waUrl = `https://wa.me/${waPhone}?text=${text}`;
     window.open(waUrl, '_blank');
     
-    // Очищаем форму через 3 секунды и прячем сообщение
-    setTimeout(() => {
-      this.reset();
-      successMsg.classList.remove('show');
-    }, 3000);
+    setTimeout(() => { this.reset(); successMsg.classList.remove('show'); }, 3000);
   });
 
-  // Анимация появления элементов при скролле
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
